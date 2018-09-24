@@ -4,6 +4,7 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.TemplateExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import freemarker.template.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.nio.charset.StandardCharsets;
 
@@ -15,7 +16,8 @@ public class FreemakerConfigure {
        return new StringTemplateLoader();
     }
 
-    @Bean
+    @Primary
+    @Bean("stringTemplate")
     public Configuration freeMakerConfiguration( StringTemplateLoader stringLoader ) {
         Configuration configuration = new Configuration(
                 Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
